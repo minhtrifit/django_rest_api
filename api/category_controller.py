@@ -70,7 +70,7 @@ def update_category(request, id):
     try:
         category = Category.objects.get(pk=id)
 
-        # partical=True để chỉ update các key gửi từ body
+        # partial=True để chỉ update các key gửi từ body
         serializer = CategorySerializer(category, data=request.data, partial=True)
 
         if serializer.is_valid():

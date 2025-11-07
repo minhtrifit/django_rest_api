@@ -103,3 +103,22 @@ python manage.py migrate
   ]
 }
 ```
+
+## 7. Update a Product
+
+**Endpoint:** `[PATCH] http://localhost:5000/products/update/{id}`
+
+**Request body:**
+
+```json
+{
+  "name": "Bánh ngọt vị dâu",
+  "price": 55000000,
+  "description": "Dành cho người nhớn",
+  "category_ids": [
+    "22222222-2222-2222-2222-222222222222", // Snacks
+    "99999999-9999-9999-9999-999999999999" // Bakery
+  ],
+  "is_active": false
+}
+```

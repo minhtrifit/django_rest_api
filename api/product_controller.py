@@ -129,3 +129,48 @@ def create_product(request):
             "success": False,
             "message": "Something wrong",
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(["PATCH"])
+def update_product(request, id):
+    try:
+        # Find product
+        product = Product.objects.get(pk=id)
+
+        # partial=True để chỉ update các key gửi từ body
+        serializer = ProductSerializer(product, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                "success": True,
+                "message": "Update product successfully",
+                "data": serializer.data
+            }, status=status.HTTP_200_OK)
+        
+        # Nếu is_valid = False
+        return Response({
+            "success": False,
+            "message": "Invalid data",
+            "errors": serializer.errors
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    except Product.DoesNotExist:
+        return Response({
+            "success": False,
+            "message": "Product not found."
+        }, status=status.HTTP_404_NOT_FOUND)
+
+    except ValidationError as e:
+        return Response({
+            "success": False,
+            "message": "Invalid data.",
+            "errors": str(e)
+        }, status=status.HTTP_400_BAD_REQUEST) 
+
+    except Exception as e:
+        print(f"Error update product: {e}")
+
+        return Response({
+            "success": False,
+            "message": "Something wrong"
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

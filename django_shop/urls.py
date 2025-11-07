@@ -21,12 +21,13 @@ from api import product_controller, category_controller
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Categories
-    path('categories/', category_controller.get_list),
+    path('categories', category_controller.get_list),
     path('categories/create', category_controller.create_category),
     path('categories/update/<path:id>', category_controller.update_category),
 
     # Products
-    path('products/', product_controller.get_list),
-    path('products/<path:id>', product_controller.get_detail),
-    path('products/create', product_controller.create_product)
+    path('products', product_controller.get_list),
+    path('products/detail/<path:id>', product_controller.get_detail),
+    path('products/create', product_controller.create_product),
+    path('products/update/<path:id>', product_controller.update_product),
 ]

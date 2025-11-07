@@ -36,10 +36,10 @@ class ProductSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
-        product = Product.objects.create(**validated_data)
-
         # related models
         category_ids = validated_data.pop('category_ids', [])
+
+        product = Product.objects.create(**validated_data)
 
         if category_ids:
             product.categories.set(category_ids)
