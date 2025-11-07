@@ -1,0 +1,265 @@
+[
+  {
+    "model": "api.product",
+    "pk": "00000001-0000-0000-0000-000000000001",
+    "fields": {
+      "name": "Coca Cola",
+      "price": 12000,
+      "description": "Refreshing soda drink",
+      "categories": ["11111111-1111-1111-1111-111111111111"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000002-0000-0000-0000-000000000002",
+    "fields": {
+      "name": "Pepsi",
+      "price": 11500,
+      "description": "Popular cola beverage",
+      "categories": ["11111111-1111-1111-1111-111111111111"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000003-0000-0000-0000-000000000003",
+    "fields": {
+      "name": "Sprite",
+      "price": 11000,
+      "description": "Lemon-lime soda",
+      "categories": ["11111111-1111-1111-1111-111111111111"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000004-0000-0000-0000-000000000004",
+    "fields": {
+      "name": "Lay's Classic Chips",
+      "price": 15000,
+      "description": "Crispy potato chips",
+      "categories": ["22222222-2222-2222-2222-222222222222"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000005-0000-0000-0000-000000000005",
+    "fields": {
+      "name": "Doritos Nacho Cheese",
+      "price": 17000,
+      "description": "Cheesy corn chips",
+      "categories": ["22222222-2222-2222-2222-222222222222"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000006-0000-0000-0000-000000000006",
+    "fields": {
+      "name": "Oreo Cookies",
+      "price": 20000,
+      "description": "Chocolate sandwich cookies",
+      "categories": ["33333333-3333-3333-3333-333333333333"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000007-0000-0000-0000-000000000007",
+    "fields": {
+      "name": "Cheesecake",
+      "price": 25000,
+      "description": "Creamy dessert",
+      "categories": ["33333333-3333-3333-3333-333333333333"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000008-0000-0000-0000-000000000008",
+    "fields": {
+      "name": "Banana",
+      "price": 8000,
+      "description": "Fresh yellow banana",
+      "categories": ["44444444-4444-4444-4444-444444444444"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000009-0000-0000-0000-000000000009",
+    "fields": {
+      "name": "Apple",
+      "price": 10000,
+      "description": "Fresh red apple",
+      "categories": ["44444444-4444-4444-4444-444444444444"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000000a-0000-0000-0000-00000000000a",
+    "fields": {
+      "name": "Carrot",
+      "price": 7000,
+      "description": "Organic carrot",
+      "categories": ["55555555-5555-5555-5555-555555555555"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000000b-0000-0000-0000-00000000000b",
+    "fields": {
+      "name": "Broccoli",
+      "price": 12000,
+      "description": "Fresh broccoli",
+      "categories": ["55555555-5555-5555-5555-555555555555"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000000c-0000-0000-0000-00000000000c",
+    "fields": {
+      "name": "Milk",
+      "price": 15000,
+      "description": "Fresh cow milk",
+      "categories": ["66666666-6666-6666-6666-666666666666"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000000d-0000-0000-0000-00000000000d",
+    "fields": {
+      "name": "Cheddar Cheese",
+      "price": 30000,
+      "description": "Aged cheddar cheese",
+      "categories": ["66666666-6666-6666-6666-666666666666"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000000e-0000-0000-0000-00000000000e",
+    "fields": {
+      "name": "Chicken Breast",
+      "price": 40000,
+      "description": "Boneless chicken",
+      "categories": ["77777777-7777-7777-7777-777777777777"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000000f-0000-0000-0000-00000000000f",
+    "fields": {
+      "name": "Beef Steak",
+      "price": 60000,
+      "description": "Premium beef steak",
+      "categories": ["77777777-7777-7777-7777-777777777777"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000010-0000-0000-0000-000000000010",
+    "fields": {
+      "name": "Salmon Fillet",
+      "price": 80000,
+      "description": "Fresh salmon",
+      "categories": ["88888888-8888-8888-8888-888888888888"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000011-0000-0000-0000-000000000011",
+    "fields": {
+      "name": "Shrimp",
+      "price": 75000,
+      "description": "Fresh shrimp",
+      "categories": ["88888888-8888-8888-8888-888888888888"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000012-0000-0000-0000-000000000012",
+    "fields": {
+      "name": "Baguette",
+      "price": 20000,
+      "description": "French bread",
+      "categories": ["99999999-9999-9999-9999-999999999999"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000013-0000-0000-0000-000000000013",
+    "fields": {
+      "name": "Croissant",
+      "price": 25000,
+      "description": "Flaky French pastry",
+      "categories": ["99999999-9999-9999-9999-999999999999"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000014-0000-0000-0000-000000000014",
+    "fields": {
+      "name": "Ice Cream",
+      "price": 30000,
+      "description": "Vanilla ice cream",
+      "categories": ["aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000015-0000-0000-0000-000000000015",
+    "fields": {
+      "name": "Frozen Pizza",
+      "price": 50000,
+      "description": "Ready-to-bake pizza",
+      "categories": ["aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000016-0000-0000-0000-000000000016",
+    "fields": {
+      "name": "Chocolate Bar",
+      "price": 12000,
+      "description": "Sweet chocolate",
+      "categories": ["33333333-3333-3333-3333-333333333333"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000017-0000-0000-0000-000000000017",
+    "fields": {
+      "name": "Granola Bar",
+      "price": 15000,
+      "description": "Healthy snack",
+      "categories": ["22222222-2222-2222-2222-222222222222"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000018-0000-0000-0000-000000000018",
+    "fields": {
+      "name": "Yogurt",
+      "price": 18000,
+      "description": "Natural yogurt",
+      "categories": ["66666666-6666-6666-6666-666666666666"]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "00000019-0000-0000-0000-000000000019",
+    "fields": {
+      "name": "Orange Juice",
+      "price": 20000,
+      "description": "Freshly squeezed",
+      "categories": [
+        "11111111-1111-1111-1111-111111111111",
+        "44444444-4444-4444-4444-444444444444"
+      ]
+    }
+  },
+  {
+    "model": "api.product",
+    "pk": "0000001a-0000-0000-0000-00000000001a",
+    "fields": {
+      "name": "Mixed Fruit Pack",
+      "price": 25000,
+      "description": "Seasonal fruits",
+      "categories": ["44444444-4444-4444-4444-444444444444"]
+    }
+  }
+]
