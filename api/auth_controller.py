@@ -14,8 +14,8 @@ def create_user(request):
 
         if serializer.is_valid():
             # Get username, password from client body
-            username = serializer.validated_data.get('username')
-            password = serializer.validated_data.get('password')
+            username = serializer.validated_data.get("username")
+            password = serializer.validated_data.get("password")
 
             # Get user from database
             user = User.objects.filter(username=username)
@@ -82,7 +82,7 @@ def login(request):
             "message": "Login successfully",
             "data": {
                 **serializer.data,
-                "access_token": str(access_token),
+                "token": str(access_token),
             }
         }, status=status.HTTP_200_OK)
     
@@ -99,13 +99,17 @@ def login(request):
             "success": False,
             "message": "Something wrong",
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
+
+
 @api_view(["GET"])
 @permission_classes([IsAuthenticated]) # Thêm decorator này với các controller cần authen
 def get_profile(request):
     try:
         # request.user đã là user hiện tại nếu JWT hợp lệ
-        serializer = UserSerializer(request.user)
+        user = request.user;
+
+        serializer = UserSerializer(user)
+
         return Response({
             "success": True,
             "message": "Get user profile successfully",
