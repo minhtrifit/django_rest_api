@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api import product_controller, category_controller, auth_controller
+from api import product_controller, category_controller, auth_controller, payment_method_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     # Categories
     path('categories', category_controller.get_list),
     path('categories/create', category_controller.create_category),
@@ -34,5 +35,9 @@ urlpatterns = [
     # Auth
     path('auth/register', auth_controller.create_user),
     path('auth/login', auth_controller.login),
-    path('auth/profile', auth_controller.get_profile)
+    path('auth/profile', auth_controller.get_profile),
+
+    # Payment method
+    path('payment_methods', payment_method_controller.get_list),
+    path('payment_methods/create', payment_method_controller.create_payment_method)
 ]

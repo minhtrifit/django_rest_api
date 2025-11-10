@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Category, User
+from .models import Product, Category, User, PaymentMethod
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -66,3 +66,8 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
+
+class PaymentMethodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PaymentMethod
+        fields = ['id', 'key', 'name', 'is_active']

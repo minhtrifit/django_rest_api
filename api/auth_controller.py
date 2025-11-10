@@ -3,11 +3,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.hashers import make_password, check_password
 from rest_framework_simplejwt.tokens import AccessToken
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .serializers import UserSerializer
 from .models import User
 
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def create_user(request):
     try:
         serializer = UserSerializer(data=request.data)
@@ -55,6 +56,7 @@ def create_user(request):
     
 
 @api_view(["POST"])
+@permission_classes([AllowAny])
 def login(request):
     try:
         username = request.data.get("username")

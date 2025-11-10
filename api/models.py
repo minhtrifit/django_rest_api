@@ -46,3 +46,16 @@ class User(models.Model):
     def is_authenticated(self):
         # Trả về True nếu user đã login
         return True
+    
+class PaymentMethod(models.Model):
+    id = models.UUIDField(
+        primary_key=True, 
+        default=uuid.uuid4, 
+        editable=False
+    )
+    key = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.key

@@ -32,6 +32,15 @@ python manage.py migrate
 
 ---
 
+- [Create user](#8-create-user)
+- [Login](#9-login)
+- [Get user profile](#10-get-user-profile)
+
+---
+
+- [Get payment methods](#11-get-payment-methods)
+- [Create payment method](#12-create-payment-method)
+
 ## 1. Get List of Categories
 
 **Endpoint:** `[GET] http://localhost:5000/categories`
@@ -120,5 +129,74 @@ python manage.py migrate
     "99999999-9999-9999-9999-999999999999" // Bakery
   ],
   "is_active": false
+}
+```
+
+## 8. Create user
+
+**Endpoint:** `[POST] http://localhost:5000/auth/register`
+
+**Request body:**
+
+```json
+{
+  "username": "minhtri",
+  "password": "123",
+  "name": "Lê Minh Trí"
+}
+```
+
+## 9. Login
+
+**Endpoint:** `[POST] http://localhost:5000/auth/login`
+
+**Request body:**
+
+```json
+{
+  "username": "minhtri",
+  "password": "123"
+}
+```
+
+## 10. Get user profile
+
+**Endpoint:** `[POST] http://localhost:5000/auth/profile`
+
+**Request header:**
+
+```json
+{
+  "Authorization": "Bearer login_token"
+}
+```
+
+## 11. Get payment methods
+
+**Endpoint:** `[GET] http://localhost:5000/payment_methods`
+
+**Query Parameters:**
+| Parameter | Type | Description | Value |
+|-----------|------|-------------|---------|
+| is_active | boolean | Filter categories by is_active (optional) | true/false |
+
+## 12. Create payment method
+
+**Endpoint:** `[POST] http://localhost:5000/payment_methods/create`
+
+**Request header:**
+
+```json
+{
+  "Authorization": "Bearer login_token"
+}
+```
+
+**Request body:**
+
+```json
+{
+  "key": "installment",
+  "name": "Trả góp"
 }
 ```
