@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Category
+from .models import Product, Category, User
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,3 +58,11 @@ class ProductSerializer(serializers.ModelSerializer):
             instance.categories.set(category_ids)
 
         return instance
+    
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'password', 'name', 'is_active']
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }

@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api import product_controller, category_controller
+from api import product_controller, category_controller, auth_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +30,9 @@ urlpatterns = [
     path('products/detail/<path:id>', product_controller.get_detail),
     path('products/create', product_controller.create_product),
     path('products/update/<path:id>', product_controller.update_product),
+
+    # Auth
+    path('auth/register', auth_controller.create_user),
+    path('auth/login', auth_controller.login),
+    path('auth/profile', auth_controller.get_profile)
 ]

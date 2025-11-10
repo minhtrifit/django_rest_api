@@ -27,3 +27,22 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+class User(models.Model):
+    id = models.UUIDField(
+        primary_key=True, 
+        default=uuid.uuid4, 
+        editable=False
+    )
+    username = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.username
+    
+    @property
+    def is_authenticated(self):
+        # Trả về True nếu user đã login
+        return True
