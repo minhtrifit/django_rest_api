@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 print("🔍 DEBUG ENV:")
+print("CLIENT_URL =", os.getenv('CLIENT_URL'))
 print("DB_NAME =", os.getenv('DB_NAME'))
 print("DB_USER =", os.getenv('DB_USER'))
 print("DB_PASSWORD =", os.getenv('DB_PASSWORD'))
@@ -50,7 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+  os.getenv('CLIENT_URL')
+]
+
+# Cho phép gửi credentials (cookies, JWT, v.v.) 
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'django_shop.urls'
 
