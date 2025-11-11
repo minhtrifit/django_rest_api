@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api import product_controller, category_controller, auth_controller, payment_method_controller
+from api import product_controller, category_controller, auth_controller, payment_method_controller, order_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,5 +39,9 @@ urlpatterns = [
 
     # Payment method
     path('payment_methods', payment_method_controller.get_list),
-    path('payment_methods/create', payment_method_controller.create_payment_method)
+    path('payment_methods/create', payment_method_controller.create_payment_method),
+
+    # Order
+    path('orders', order_controller.get_list),
+    path('orders/create', order_controller.create_order),
 ]

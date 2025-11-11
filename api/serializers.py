@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Category, User, PaymentMethod
+from .models import Product, Category, User, PaymentMethod, Order, OrderItem
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -71,3 +71,40 @@ class PaymentMethodSerializer(serializers.ModelSerializer):
     class Meta:
         model = PaymentMethod
         fields = ['id', 'key', 'name', 'is_active']
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    # Dùng để hiển thị nested data khi GET (read_only)
+    product = ProductSerializer(many=False, read_only=True)
+    sub_total = serializers.DecimalField(
+        max_digits=12,
+        decimal_places=2,
+        source='subtotal',  # lấy từ @property
+        read_only=True
+    )
+
+    class Meta:
+        model = OrderItem
+        fields = ['id', 'product', 'quantity', 'price', 'sub_total']
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    # Dùng để hiển thị nested data khi GET (read_only)
+    user = UserSerializer(many=False, read_only=True)
+    payment_method = PaymentMethodSerializer(many=False, read_only=True)
+    
+    items = OrderItemSerializer(many=True, required=False)
+
+    class Meta:
+        model = Order
+        fields = [
+            'id',
+            'user',
+            'payment_method',
+            'status',
+            'note',
+            'total_amount',
+            'created_at',
+            'updated_at',
+            'items',
+        ]
+        read_only_fields = ['total_amount', 'created_at', 'updated_at']
