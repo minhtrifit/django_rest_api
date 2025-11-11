@@ -43,5 +43,7 @@ urlpatterns = [
 
     # Order
     path('orders', order_controller.get_list),
+    path('orders/detail/<path:id>', order_controller.get_detail),
     path('orders/create', order_controller.create_order),
+    path('orders/update/<path:id>', order_controller.update_order),
 ]

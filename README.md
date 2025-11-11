@@ -41,6 +41,13 @@ python manage.py migrate
 - [Get payment methods](#11-get-payment-methods)
 - [Create payment method](#12-create-payment-method)
 
+---
+
+- [Get List of orders](#13-get-list-of-orders)
+- [Get Order Details](#14-get-order-details)
+- [Create order](#15-create-order)
+- [Update order](#16-update-order)
+
 ## 1. Get List of Categories
 
 **Endpoint:** `[GET] http://localhost:5000/categories`
@@ -88,7 +95,7 @@ python manage.py migrate
 
 ## 5. Get Products Details
 
-**Endpoint:** `[GET] http://localhost:5000/products/{id}`
+**Endpoint:** `[GET] http://localhost:5000/products/detail/{id}`
 
 **Path Parameters:**
 | Parameter | Type | Description |
@@ -198,5 +205,79 @@ python manage.py migrate
 {
   "key": "installment",
   "name": "Trả góp"
+}
+```
+
+## 13. Get List of Orders
+
+**Endpoint:** `[GET] http://localhost:5000/orders`
+
+**Query Parameters:**
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| page | int | Page number for pagination | 1 |
+| limit | int | Number of items per page | 10 |
+| status | str | Filter orders by status (optional) | pending/paid/shipped/completed/canceled |
+| payment_method | str | Filter orders by payment method (optional) | - |
+
+## 14. Get Order Details
+
+**Endpoint:** `[GET] http://localhost:5000/orders/detail/{id}`
+
+**Path Parameters:**
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| id | UUID | PUnique ID of the order |
+
+## 15. Create order
+
+**Endpoint:** `[POST] http://localhost:5000/orders/create`
+
+**Request header:**
+
+```json
+{
+  "Authorization": "Bearer login_token"
+}
+```
+
+**Request body:**
+
+```json
+{
+  "user_id": "a563a31d-d802-4e15-94b6-1447cc2b87cb",
+  "payment_method": "11111111-1111-1111-1111-111111111111",
+  "note": "Bấm chuông khi giao hàng",
+  "items": [
+    { "product": "00000006-0000-0000-0000-000000000006", "quantity": 3 },
+    { "product": "0000000e-0000-0000-0000-00000000000e", "quantity": 5 },
+    { "product": "00000013-0000-0000-0000-000000000013", "quantity": 7 }
+  ]
+}
+```
+
+## 16. Update a Order
+
+**Endpoint:** `[PATCH] http://localhost:5000/orders/update/{id}`
+
+**Request header:**
+
+```json
+{
+  "Authorization": "Bearer login_token"
+}
+```
+
+**Request body:**
+
+```json
+{
+  "status": "shipped",
+  "payment_method": "33333333-3333-3333-3333-333333333333",
+  "note": "Gửi kèm quà",
+  "items": [
+    { "product": "00000006-0000-0000-0000-000000000006", "quantity": 1 },
+    { "product": "0000000e-0000-0000-0000-00000000000e", "quantity": 2 }
+  ]
 }
 ```

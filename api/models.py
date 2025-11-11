@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.utils import timezone
+from .constants import OrderStatus
 
 class Category(models.Model):
     id = models.UUIDField(
@@ -62,13 +63,6 @@ class PaymentMethod(models.Model):
         return self.key
     
 class Order(models.Model):
-    class Status(models.TextChoices):
-        PENDING = "pending", "Pending"
-        PAID = "paid", "Paid"
-        SHIPPED = "shipped", "Shipped"
-        COMPLETED = "completed", "Completed"
-        CANCELED = "canceled", "Canceled"
-
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -98,8 +92,8 @@ class Order(models.Model):
 
     status = models.CharField(
         max_length=20,
-        choices=Status.choices,
-        default=Status.PENDING
+        choices=OrderStatus.choices,
+        default=OrderStatus.PENDING
     )
 
     created_at = models.DateTimeField(default=timezone.now)
